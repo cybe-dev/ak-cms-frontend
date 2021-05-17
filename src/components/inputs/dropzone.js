@@ -34,6 +34,7 @@ const Dropzone = ({
                 ? value.replace("public", baseURL)
                 : URL.createObjectURL(value)
             }
+            alt="Preview"
             className="w-full h-full object-contain absolute top-0 left-0 opacity-50"
           />
         )}

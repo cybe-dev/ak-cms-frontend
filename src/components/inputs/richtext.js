@@ -103,6 +103,7 @@ const Richtext = React.forwardRef(({ label, ...props }, ref) => {
         {returnedURL ? (
           <>
             <img
+              alt="Preview"
               src={returnedURL.replace("public", baseURL)}
               className="max-w-full"
             />

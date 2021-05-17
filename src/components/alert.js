@@ -11,7 +11,7 @@ export default function Alert({
   const [show, setShow] = useState(true);
   let css = "px-5 py-3";
   if (color) {
-    css += ` bg-${color}-200 text-${color}-900`;
+    css += " bg-" + color + "-200 text-" + color + "-900";
   }
   if (className) {
     css += " " + className;

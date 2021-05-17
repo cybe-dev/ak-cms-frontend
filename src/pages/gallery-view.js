@@ -128,6 +128,7 @@ export default function GalleryView() {
           {data.map((item, index) => (
             <div className="ratio-1-1 border border-gray-400" key={`${index}`}>
               <img
+                alt="Gallery"
                 className="w-full h-full absolute top-0 left-0 object-cover"
                 src={item.path.replace("public", baseURL)}
               />
