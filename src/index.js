@@ -4,10 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "overlayscrollbars/css/OverlayScrollbars.css";
+import { CookiesProvider } from "react-cookie";
+import WebProvider from "./web-context";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CookiesProvider>
+      <WebProvider>
+        <App />
+      </WebProvider>
+    </CookiesProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

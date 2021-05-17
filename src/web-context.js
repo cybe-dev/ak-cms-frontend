@@ -26,6 +26,19 @@ const reducer = (state, action) => {
         ...state,
         titlePage: action.value,
       };
+    case "formMapping":
+      return {
+        ...state,
+        formMapping: action.value,
+      };
+    case "basicInformation":
+      return {
+        ...state,
+        basicInformation: {
+          ...state.basicInformation,
+          ...action.value,
+        },
+      };
     default:
       throw new Error();
   }
@@ -36,6 +49,8 @@ export default function WebProvider({ children }) {
     auth: false,
     sidebarExpanded: true,
     titlePage: "Dashboard",
+    formMapping: {},
+    basicInformation: {},
   });
   return (
     <WebContext.Provider value={{ state, dispatch }}>

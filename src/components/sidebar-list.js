@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function SidebarList({ label, path, icon, expanded }) {
   let className =
     "flex px-5 py-2 items-center roboto hover:text-white bg-primary text-sm";
-  if (window.location.href.indexOf(path) !== -1) {
+  if (window.location.pathname.match(new RegExp(`^${path}`))) {
     className += " bg-primary-900";
   } else {
     className += " text-primary-50";

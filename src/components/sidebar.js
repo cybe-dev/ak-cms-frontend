@@ -1,9 +1,4 @@
-import {
-  faAddressCard,
-  faBell,
-  faTimes,
-  faTv,
-} from "@fortawesome/free-solid-svg-icons";
+import * as iconCenter from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { useWeb } from "../web-context";
@@ -47,10 +42,10 @@ export default function Sidebar() {
       >
         <div className="flex montserrat font-bold h-16 items-center justify-between p-5 shadow-md">
           <span className={isExpand ? "hidden lg:block" : "block lg:hidden"}>
-            NS-Admin
+            Admin Panel
           </span>
           <span className={isExpand ? "block lg:hidden" : "hidden lg:block"}>
-            NSA
+            A-Pa
           </span>
           <button
             className="text-white rounded-none w-8 h-8 flex justify-center items-center text-lg lg:hidden"
@@ -59,28 +54,46 @@ export default function Sidebar() {
               webContext.dispatch({ type: "sidebarExpanded", value: true });
             }}
           >
-            <FontAwesomeIcon icon={faTimes} />
+            <FontAwesomeIcon icon={iconCenter.faTimes} />
           </button>
         </div>
         <ul className="my-5">
           <SidebarList
             label="Dashboard"
-            icon={faTv}
+            icon={iconCenter.faTv}
             path="/dashboard"
             expanded={isExpand}
           />
           <SidebarList
-            label="Alert"
-            icon={faBell}
-            path="/alert"
+            label="Informasi Dasar"
+            icon={iconCenter.faAddressCard}
+            path="/basic-information"
             expanded={isExpand}
           />
           <SidebarList
-            label="Modal"
-            icon={faAddressCard}
-            path="/modal"
+            label="Blog"
+            icon={iconCenter.faNewspaper}
+            path="/blog"
             expanded={isExpand}
           />
+          {webContext.state.formMapping.postType?.map((item, index) => (
+            <SidebarList
+              key={`${index}`}
+              label={item.name}
+              icon={iconCenter[item.icon] || iconCenter.faArchive}
+              path={`/${item.key}`}
+              expanded={isExpand}
+            />
+          ))}
+          {webContext.state.formMapping.gallery?.map((item, index) => (
+            <SidebarList
+              key={`${index}`}
+              label={item.name}
+              icon={iconCenter[item.icon] || iconCenter.faImages}
+              path={`/gallery/${item.for}`}
+              expanded={isExpand}
+            />
+          ))}
         </ul>
       </OverlayScrollbarsComponent>
     </div>

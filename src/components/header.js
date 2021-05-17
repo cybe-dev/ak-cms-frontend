@@ -4,11 +4,15 @@ import { Fragment } from "react";
 import { useWeb } from "../web-context";
 import Sidebar from "./sidebar";
 import UserDropdown from "./user-dropdown";
+import { Helmet } from "react-helmet";
 
 export default function Header() {
   const webContext = useWeb();
   return (
     <Fragment>
+      <Helmet>
+        <title>{webContext.state.titlePage}</title>
+      </Helmet>
       <Sidebar />
       <div
         className={
