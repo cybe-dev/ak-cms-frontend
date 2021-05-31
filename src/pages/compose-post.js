@@ -127,6 +127,13 @@ export default function ComposePost() {
               )}
             />
           )}
+          {typeDesc.thumbnail?.type === "string" && (
+            <TextInput
+              type="text"
+              label={typeDesc.thumbnail?.name}
+              {...register("thumbnail")}
+            />
+          )}
           {typeDesc.text?.type === "text" && (
             <Textarea
               label={typeDesc.text?.name}
@@ -147,6 +154,14 @@ export default function ComposePost() {
                   label={typeDesc.text?.name}
                 />
               )}
+            />
+          )}
+          {typeDesc.text?.type === "string" && (
+            <TextInput
+              type="text"
+              label={typeDesc.text?.name}
+              error={errors?.text?.message}
+              {...register("text", { required: "Tidak boleh kosong" })}
             />
           )}
           <Button type="submit" className="bg-blue-600">

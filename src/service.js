@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const baseURL = "https://ak-cms.akbaraditama.com";
+export const baseURL = "";
 
 const service = axios.create({
   baseURL: baseURL + "/api",

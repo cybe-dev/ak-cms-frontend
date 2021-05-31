@@ -10,9 +10,17 @@ export default function Alert({
 }) {
   const [show, setShow] = useState(true);
   let css = "px-5 py-3";
-  if (color) {
-    css += " bg-" + color + "-200 text-" + color + "-900";
+  let colored = "";
+  if (color === "red") {
+    colored = " bg-red-200 text-red-900";
+  } else if (color === "green") {
+    colored = " bg-green-200 text-green-900";
+  } else if (color === "blue") {
+    colored = " bg-blue-200 text-blue-900";
+  } else if (color === "yellow") {
+    colored = " bg-yellow-200 text-yellow-900";
   }
+  css += colored;
   if (className) {
     css += " " + className;
   }
